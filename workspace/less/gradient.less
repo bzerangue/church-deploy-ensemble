@@ -1,0 +1,29 @@
+.gradient(@img:none, @color-1:black, @color-2:white, @point-1:0% 0%, @point-2:0% 100%) {
+  background: @color-1 @img;
+  background: @img -webkit-gradient(linear, @point-1, @point-2, from(@color-1), to(@color-2));
+  background: url(@url) repeat, -moz-linear-gradient(-90deg, @color-1, @color-2);
+}
+
+.gradient3(@img:none, @color-1:black, @color-2:gray, @color-3:white, @point-1:0%, @point-2:50%, @point-3:100%) {
+	background: @color-2 @img;
+	background: @img -webkit-gradient(linear, left top, left bottom, color-stop(@point-1,@color-1), color-stop(@point-2,@color-2), color-stop(@point-3,@color-3));
+	background: @img -moz-linear-gradient(top, @color-1 @point-1, @color-2 @point-2, @color-3 @point-3);
+}
+
+.gradient4(@img:none, @color-1:black, @color-2:gray, @color-3:gray, @color-4:white, @point-1:0%, @point-2:33%, @point-3:66%, @point-4:100%) {
+	background: @color-2 @img;
+	background: @img -webkit-gradient(linear, left top, left bottom, color-stop(@point-1,@color-1), color-stop(@point-2,@color-2), color-stop(@point-3,@color-3), color-stop(@point-4,@color-4));
+	background: @img -moz-linear-gradient(top, @color-1 @point-1, @color-2 @point-2, @color-3 @point-3, @color-4 @point-4);
+}
+
+.gradient5(@img:none, @color-1:black, @color-2:gray, @color-3:gray, @color-4:gray, @color-5:white, @point-1:0%, @point-2:25%, @point-3:50%, @point-4:75%, @point-5:100%) {
+	background: @color-2 @img;
+	background: @img -webkit-gradient(linear, left top, left bottom, color-stop(@point-1,@color-1), color-stop(@point-2,@color-2), color-stop(@point-3,@color-3), color-stop(@point-4,@color-4), color-stop(@point-5,@color-5));
+	background: @img -moz-linear-gradient(top, @color-1 @point-1, @color-2 @point-2, @color-3 @point-3, @color-4 @point-4, @color-5 @point-5);
+}
+
+.gradient6(@img:none, @color-1:black, @color-2:gray, @color-3:gray, @color-4:gray, @color-5:gray, @color-6:white, @point-1:0%, @point-2:20%, @point-3:40%, @point-4:60%, @point-5:80%, @point-6:100%) {
+	background: @color-2 @img;
+	background: @img -webkit-gradient(linear, left top, left bottom, color-stop(@point-1,@color-1), color-stop(@point-2,@color-2), color-stop(@point-3,@color-3), color-stop(@point-4,@color-4), color-stop(@point-5,@color-5), color-stop(@point-6,@color-6));
+	background: @img -moz-linear-gradient(top, @color-1 @point-1, @color-2 @point-2, @color-3 @point-3, @color-4 @point-4, @color-5 @point-5, @color-6 @point-6);
+}

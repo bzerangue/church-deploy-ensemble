@@ -1,0 +1,874 @@
+//
+
+// We really need to steer clear of !important unless absolutely necessary
+
+//
+
+
+// kirk start
+
+.less-image {
+	text-indent: -999999px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	line-height: 0;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+}
+
+
+// kirk end
+
+
+@import "rounded.less";
+@import "gradient.less";
+@import "shadow.less";
+
+@color-1: hsl(9,80%,95%);
+@color-2: hsl(76,60%,52%);
+
+/*	Element presets
+	---------------	*/
+
+* {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	text-decoration: none;
+	-webkit-transition: background 200ms ease-in-out, color 200ms ease-in-out;
+}
+a:hover {
+	text-decoration: none;
+}
+
+/*	Typography presets
+	------------------	*/
+
+.gigantic {
+	font-size: 123px;
+	line-height: 132px;
+	letter-spacing: -2px;
+}
+
+.huge, h1 {
+	font-size: 76px;
+	line-height: 84px;
+	letter-spacing: -1px;
+}
+
+.large, h2 {
+	font-size: 47px;
+	line-height: 48px;
+}
+
+.bigger, h3 {
+	font-size: 29px;
+	line-height: 36px;
+}
+
+.big, h4 {
+	font-size: 25px;
+	line-height: 30px;
+}
+
+body {
+	background: hsl(202, 13%, 90%);
+	font: normal normal 400 18px/1.4 adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+	margin: 0 auto;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.small, small {
+	font-size: 13px;
+	line-height: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	color: #222;
+}
+h1, h2, h3 {
+	text-transform: uppercase;
+}
+p {
+	font: normal normal 400 16px/1.4 adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+	margin: 20px 0;
+}
+
+/* CLASSES
+   ======= */
+.page-header {
+	width: 100%;
+	height: 330px;
+	margin-bottom: -70px;
+	background: hsl(202, 13%, 25%) url('../images/noise-sm.png') repeat;
+	.box-shadow(e('inset 0 -1px 10px rgba(0,0,0,0.35)'));
+	
+	h1, 
+	h1 a {
+		position: relative;
+		color: #fff;
+		text-shadow: none;
+		font-size: 44px;
+		text-transform: none;
+		font-weight: 300;
+		letter-spacing: 3px;
+		margin: 20px 0 10px 240px;
+		text-align: center;
+		text-shadow: 0 1px 2px rgba(0,0,0,0.75);
+		left: -80px;
+		width: 700px;
+	}
+	
+	h3 {
+		margin: 30px 0 0 0;
+	}
+	
+	.wrapper {
+		padding-top: 0;
+	}
+	
+	.lower {
+		padding: 100px 0 0 0;
+	}
+}
+
+.nav {
+	.box-shadow(e('0 1px 0 rgba(255,255,255,0.15), inset 0 -5px 12px rgba(0,0,0,0.25)'));
+	height: 65px;
+	border-top: 4px solid hsl(10, 62%, 55%);
+	position: fixed;
+	width: 100%;
+	z-index: 4;
+	background: hsla(202, 13%, 25%, 0.95) url('../images/noise-sm.png') repeat;
+	
+	.logo {
+		float: right;
+		margin-top: 15px;
+		padding: 0 0 0 0;
+		font: normal normal 400 16px/1.4 proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+		color: #fff;
+		text-transform: uppercase;
+		text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+		text-indent: -9999px;
+		display: none;
+		height: 50px;
+		width: 120px;
+		background: url('../images/sprite.png') no-repeat 0 -135px;
+		-webkit-transition: none;
+	}
+	
+}
+
+.logomark {
+	text-indent: -9999px;
+	display: block;
+	height: 125px;
+	width: 185px;
+	background: url('../images/sprite.png') no-repeat 0 5px;
+	float: left;
+	clear: both;
+	margin-left: 50px;
+	z-index: 10;
+}
+
+.nav-1 {
+	display: block;
+	float: left;
+	list-style: none;
+	list-style-type: none;
+	list-style-image: none;
+	text-transform: uppercase;
+	margin: 18px 0 0 0;
+
+	.entry {
+		display: inline;
+		float: left;
+		
+		a {
+			.rounded(3px);
+			padding: 5px 10px;
+			margin-right: 7px;
+			color: #fff;
+			text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+			font-size: 13px;
+			font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+			font-weight: 700;
+			letter-spacing: 0.04em;
+			text-shadow: 0 1px 0 rgba(0,0,0,1);
+			
+			&:hover {
+				background: #fff;
+				background: rgba(255,255,255,0.1);
+			}
+		}
+		
+		&.active {
+		
+			a {
+				background: #000;
+				background: rgba(0,0,0,0.35);
+				.box-shadow(e('inset 0 1px 7px rgba(0,0,0,0.35), 0 0 1px rgba(255,255,255,0.1)'));
+			}
+		}
+	}
+}
+
+.nav-2 {
+	padding: 25px 20px 5px 20px;
+	margin-right: -20px;
+	font-size: 14px;
+	font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 auto;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+
+	.entry {
+		display: inline;
+		margin: 0 5px;
+		
+		a {
+			.rounded(3px);
+			padding: 5px 10px;
+			color: #595957;
+			font-weight: 700;
+			
+			&:hover { 
+				background: #ededec; 
+			}
+		}
+			
+		&.active a {
+			background: #ccc;
+		
+			&:hover { 
+				background: #bbb; 
+			}
+		}
+	}
+  
+	h4 {
+		font-style: italic;
+		margin: 10px 340px 10px 0;
+	}
+}
+
+.footer {
+	width: 100%;
+	background: hsl(202, 13%, 60%) url('../images/noise-sm.png') repeat;
+	margin: 60px 0 0 0;
+	padding: 20px 0;
+	
+	.box-shadow(e('0 -1px 0 rgba(255,255,255,0.75), inset 0 2px 8px rgba(0,0,0,0.2)'));
+	
+	.nav-1 {
+		width: 100%;  
+		padding: 50px 0;
+		
+		&,
+		& * {
+			padding: 0;
+			margin: 0;
+			text-transform: none !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			text-shadow: none !important;
+			background: none !important;
+		}
+		
+		.entry {
+			text-transform: uppercase;
+			float: left;
+			display: block;
+			text-align: left;
+			font-weight: 700;
+			
+			a {
+				display: block;
+				padding: 5px 10px;
+				color: #444;//hsl(8, 50%, 45%);
+				text-shadow: 0 1px 0 rgba(255,255,255,0.25) !important;
+			}
+		}
+			
+		.nav-2 {
+			
+			.entry {
+				float: none;
+				border: none;
+				width: inherit;
+				margin: 10px 0;
+				
+				a {
+					color: #333;
+					font-weight: 300;
+					
+				}
+			}
+		}
+		
+		a {
+			color: #333;
+		}
+	}
+}
+
+.smallprint {
+	background: hsl(202, 13%, 90%);
+	.box-shadow(e('0 -1px 0 rgba(255,255,255,0.85)'));
+	padding: 20px 0;
+	font-size: 16px;
+	font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+	
+	a {
+		color: hsl(8, 50%, 45%);
+		font-weight: 700;
+	}
+}
+
+.content {
+	width: 960px;
+	margin: 0 auto;
+	.rounded(3px);
+	background: #fff;
+	.box-shadow(e('0 0 10px rgba(0,0,0,0.35)'));
+	padding-bottom: 30px;
+}
+
+.column-center h2 {
+	border-top: 5px double #ccc;
+	border-bottom: 5px double #ccc;
+	margin-bottom: 20px;
+	padding: 20px 0;
+	font: normal normal 700 48px/50px proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: none;
+}
+
+
+
+/* Selection colours (easy to forget) */
+
+::selection 	 	{background: rgb(255,255,158);}
+::-moz-selection 	{background: rgb(255,255,158);}
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+.wrapper {
+	width: 960px;
+	margin: 0 auto;
+/*	padding: 72px 48px 84px;*/
+/*	background: rgb(232,232,232) url('http://subtlepatterns.com/patterns/diagonal-noise.png') repeat;*/
+/*	background: rgb(232,232,232) url('http://subtlepatterns.com/patterns/white_texture.png') repeat;*/
+	color: rgb(60,60,60);
+	-webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
+}
+
+.column-center {
+	width: 580px;
+	float: left;
+	padding: 0 24px 0 24px;
+}
+
+.column-right {
+	width: 310px;
+	float: left;
+}
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	.wrapper {
+		width: 712px;
+		padding: 48px;
+	}
+}
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+	
+	.wrapper {
+		width: 252px;
+		padding: 48px;
+	}
+	
+}
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	.wrapper {
+		width: 436px;
+		padding: 48px;
+	}
+
+}
+
+
+/*	Retina media query.
+	Overrides styles for devices with a 
+	device-pixel-ratio of 2+, such as iPhone 4.
+-----------------------------------------------    */
+
+@media 
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min-device-pixel-ratio: 2) {
+	
+	body {
+	
+	}
+	
+}
+
+/* Logos RefTagger Styles*/
+
+.lbsTooltip {
+	background: #e9ebeb;
+	border: 1px solid #777;
+	padding: 5px;
+	z-index: 99;
+	text-align: left;
+	text-indent: 0;
+}
+
+.lbsTooltip div {
+	text-align: left;
+}
+.lbsTooltip+div {
+	background: #fff;
+}
+
+.lbsTooltipHeader {
+	background: hsl(179, 0%, 27%);
+	color:#fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.95);
+	font-weight:bold;
+	font-size:14px;
+	line-height: 18px;
+	font-family:proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	text-transform: uppercase;
+	margin: 0;
+	padding:4px;
+	position:relative;
+	border: 0;
+}
+
+.lbsTooltipBody 
+{
+	padding: 4px 8px 0 8px;
+	margin:0;
+	position:relative;
+	z-index: 2;
+	border: 0;
+	line-height:14px;
+}
+
+.lbsTooltipBody p, .lbsTooltipBody span
+{
+	display: inline;
+	color: black;
+	font-family: adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+	font-size: 13px;
+	line-height:16px;
+}
+
+.lbsTooltipFooter
+{
+	font-size:11px;
+	font-family:proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	bottom:4px;
+	margin: 5px 0;
+	position:absolute;
+	text-align:right;
+	border: 0;
+}
+
+.lbsTooltipFooter a:link, .lbsTooltipFooter a:visited, .lbsTooltipFooter a:hover 
+{
+	background: hsl(10, 62%, 55%);
+	color: #fff;
+	font-weight: normal;
+	font-size:12px;
+	font-family:proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 3px 6px;
+	text-shadow: none;
+}
+
+.lbsTooltipFooter div
+{
+	text-align:right;
+}
+
+
+.lbsTooltipBody .ch-ref, .lbsTooltipBody .verse-ref
+{
+	font-size: 85%;
+	top: -1px;
+	position: relative;
+}
+
+.lbsTooltipBody .ch-ref
+{
+	font-weight: bold;
+}
+
+.lbsTooltipBody .verse-ref
+{
+	color: dimgray;
+}
+
+.lbsTooltip, .lbsTooltipBody span, .lbsTooltip a, .lbsTooltipBody p
+{
+	margin: 0;
+	padding: 0;
+}
+
+.lbsLibronix img
+{
+	float: none;
+}
+
+a[href="http://www.logos.com/reftagger"] {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+// kirk start
+.column-right {
+	.component {
+		
+	
+		.header {
+			.gradient3(e("url('../img/noise-sm.png') repeat,"), rgba(255,255,255,1.0), #f2f2f0, #e5e5e4, 0%, 2%,100%);
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: 1px;
+			padding-left: 10px;
+			.rounded-top(2px);
+			border-bottom: 1px solid #ccc;
+			float: none;
+		}
+		
+		.entry {	
+			text-indent: 0;
+			padding: 10px 0;
+			border-bottom: 1px solid #babbbf;
+			border-top: none;
+			padding-bottom: 12px !important;
+			
+			&.even {
+				background: #ededec;
+				border-top: 1px solid #fefefe;
+			}
+			
+			&.last {
+				border-bottom: none;
+			}
+			
+			&.grade-school {
+				border-left:  4px solid hsl(10, 62%, 55%);
+			}
+			
+			.image {
+				.less-image;
+				.box-shadow(e('0 0px 5px #888'));
+				.rounded(3px);
+				
+				width: 129px;
+				height: 151px;
+				float: left;
+				margin-right: 10px;
+				background-repeat: no-repeat;
+			}	
+			
+			.info {
+				float: left;
+			}
+		}
+		&.component-event {
+			font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+			background: #fff;
+			padding: 0;
+			margin: 0 0 20px 0;
+			border: 1px solid #babbbf;
+			.rounded(2px);
+			
+			.entry {
+				margin: 0;
+				text-indent: 0;
+				padding: 10px 0;
+				border-bottom: 1px solid #babbbf;
+				border-top: none;
+				padding-bottom: 12px !important;
+				
+				&.last { border-bottom: none; }
+		
+				.date {
+					float: left;
+					display: block;
+					.rounded(3px);
+					margin: 0 10px;
+					border: 1px solid #aaa;
+					.box-shadow(e('0 1px 0 rgba(255,255,255,0.5)'));
+					.month {
+						display: block;
+						width: 42px;
+						text-transform: uppercase;
+						padding: 0;
+						background: #aaa url('../images/noise-sm.png') repeat;
+						color: #fff;
+						font-size: 12px;
+						text-shadow: none;
+						text-align: center;
+						font-weight: 700;
+					}
+					
+					.day {
+						background: #efefef;
+						padding: 0;
+						display: block;
+						width: 42px;
+						text-align: center;
+						font-weight: 700;
+						font-size: 20px;
+						color: #333;
+					}
+				}
+				
+				.info {
+					float: left;
+					padding-left: 5px;
+					
+					.description {
+						font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+						color: #222;
+						font-weight: 700;
+						display: block;
+					}
+					
+					.location {
+						background: transparent url('../images/sprite.png') -200px -50px no-repeat;
+						display: block;
+						font: normal italic normal 14px/1.4 adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+						margin: 5px 0 0 5	px;
+						padding-left: 15px;
+					}
+				}
+			}
+		} /* end of .component-event */
+		
+		&.component-member {
+			font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+			background: #fff;
+			padding: 0;
+			margin: 0 0 20px 0;
+			border: 1px solid #babbbf;
+			.rounded(2px);
+			
+			.entry {
+					
+				.image {
+					width: 85px;
+					height: 85px;
+					background-position: 5px 5px;
+					margin: 5px 0 0 10px;
+				}
+				
+				.info {
+					float: left;
+					margin-left: 10px;
+					
+					.name {
+						margin: 5px 0;
+						font-size: 15px;
+						line-height: 15px;
+					}
+					
+					h4 {
+						color: #777;
+						font-family: adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+						font-weight: normal;
+						font-size: 15px;
+						line-height: 15px;
+						font-style: italic;
+						margin: 10px 0;
+					}
+					
+					.email {
+						padding-left: 20px;
+						background: transparent url('../images/sprite.png') -200px 5px no-repeat;
+						
+						a {
+							font-size: 12px;
+							color: #222;
+							font-style: italic;
+							letter-spacing: 1px;
+						}
+					}
+				}
+			}
+		} /* end of .component-member */
+
+	}
+}
+
+.column-center {
+	h2 {
+	
+	}
+	.component {
+		.entry {
+			border-bottom: none;
+		}
+	}
+}
+
+.column-full-width {
+	.component {
+		.entry {
+			border-bottom: none;
+		}
+		
+		&.component-images {
+			padding: 20px;
+			
+			.entry {
+				background-repeat: no-repeat;
+				.less-image;
+				.rounded(3px);
+				.box-shadow(e('inset 0 0 10px rgba(0,0,0,0.3)'));
+				width: 920px;
+				height: 385px;
+			}
+			
+			
+		}
+		&.component-verses {
+			.entry {
+				display: block;
+				border: none;
+				padding-top: 20px;
+				margin: 0 auto;
+				font: normal italic 400 18px/24px adelle, "Palatino", Georgia, Times New Roman, Times, serif;
+				text-align: center;
+				width: 85%;
+				
+				span {
+					display: block;
+					margin: 20px 0;
+					font-size: 14px;
+					text-align: center;
+					font: normal normal 700 16px/12px proxima-nova, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+					text-transform: uppercase;
+				}
+			}
+			
+			.verses span a {
+				color: hsl(10, 62%, 55%);
+			
+				&:hover {
+					color: hsl(10, 62%, 45%);
+				}
+			}
+			
+		}
+	}
+}
+
+.component { // component defaults
+	
+	// column specific settings
+
+		
+		.entry {
+			text-indent: 0;
+			padding: 10px 0;
+			border-bottom: 1px solid #babbbf;
+			border-top: none;
+			padding-bottom: 12px !important;
+			
+			.info {
+				width: 190px;
+			}
+		}
+		
+		
+	
+	
+	// column defaults
+	
+}
+
+
+
+// kirk end
